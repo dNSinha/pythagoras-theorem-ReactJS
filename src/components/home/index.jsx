@@ -1,42 +1,37 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as StoreActions from 'Store/actions/storeActions';
+import Box from 'Components/common/box';
+import './style.scss';
 
 export class Home extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      sample: 'hi'
+      perpendicular: 4,
+      base:3
     }
-    this.handleClick = this.handleClick.bind(this);
-    this.initialData = [
-      { name: 'durgesh' },
-      { name: 'abc' }
-    ]
   }
 
   componentDidMount() {
-    this.props.dispatch(StoreActions.setInitialData(this.initialData));
-    this.setState({
-      sample: 'newHi'
-    })
+
   }
 
-  handleClick() {
-    this.props.history.push('/newPage');
-  }
 
   render() {
     return (
-      <div>
-        <p>Home Works!</p>
-        <p>{process.env.GOOGLE_URL}</p>
-        {this.state.sample}
-        <button type="button" class="btn btn-primary" onClick={this.handleClick}>Primary</button>
+      <div className="container large-container">
+        <div className="perpendicular">
+          <Box level={this.state.perpendicular} />
+        </div>
+        {/* <div className="hypt">
+          <Box />
+        </div> */}
+        <div>
+          <Box level={this.state.base} />
+        </div>
       </div>
     );
   }
 }
 
-export default connect()(Home);
+export default Home;
