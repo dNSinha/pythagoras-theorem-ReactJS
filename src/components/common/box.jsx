@@ -5,26 +5,25 @@ export class Box extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            sample: 'hi'
-        }
         this.showTriangle = this.showTriangle.bind(this);
         this.showBoxes = this.showBoxes.bind(this);
         this.boxes = [];
         this.boxesArray = [];
     }
 
-    showBoxes() {
-        for (let i = 0; i < this.props.level; i++) {
-            this.boxes.push(<div className="box"></div>);
+    showBoxes(j) {
+        this.boxes = [];
+        for (let i = 0; i < this.props.value; i++) {
+            let color = this.props.base ? this.props.base > i && this.props.base > j ? 'green' : 'blue' : this.props.css;
+            this.boxes.push(<div className={"box " + color}></div>);
         }
         return this.boxes;
     }
 
     showTriangle() {
-        for (let j = 0; j < this.props.level; j++) {
+        for (let j = 0; j < this.props.value; j++) {
             this.boxesArray.push(<div className="inline">
-                {this.showBoxes()}
+                {this.showBoxes(j)}
             </div>)
         }
         return this.boxesArray;
@@ -33,31 +32,7 @@ export class Box extends React.Component {
     render() {
         return (
             <div>
-                {/* {this.props.level.map((index) => (
-                    <div className="inline" key={index}>
-                        {this.props.level.map((id) => {
-                            <div className="box" key={id}></div>
-                        })}
-                    </div>
-                ))} */}
-
                 {this.showTriangle()}
-
-                {/* <div className="inline">
-                    <div className="box"></div>
-                    <div className="box"></div>
-                    <div className="box"></div>
-                </div>
-                <div className="inline">
-                    <div className="box"></div>
-                    <div className="box"></div>
-                    <div className="box"></div>
-                </div>
-                <div className="inline">
-                    <div className="box"></div>
-                    <div className="box"></div>
-                    <div className="box"></div>
-                </div> */}
             </div>
         );
     }

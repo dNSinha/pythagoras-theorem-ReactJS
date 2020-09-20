@@ -1,12 +1,21 @@
-.perpendicular {
+.base {
     transform: rotate(90deg);
     transform-origin: top left;
 }
 
 .large-container {
-    margin: 0 15em;
+    margin: 0 auto;
+    padding: 0 30%;
 }
 
-.hypt {
-    transform: skewY(20deg);
+.hypotenuse {
+    transform-origin: left bottom;
+}
+
+.rotate-less {
+    transform: rotate(217deg);
+}
+
+.rotate-more {
+    transform: rotate(233deg);
 }
