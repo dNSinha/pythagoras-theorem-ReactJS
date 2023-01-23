@@ -49,7 +49,7 @@ export class Home extends React.Component {
             <Box value={this.state.base} css="green" />
           </div>
         </div> : <div>
-            <p>Please enter a valid triplet For Eg: a: 3, b: 4, c: 5</p>
+            <p>Please enter a valid triplet For  egEg: a: 3, b: 4, c: 5</p>
           </div>}
 
       </div>
